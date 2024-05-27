@@ -1,0 +1,124 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #222;
+}
+
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+#birthday_event_section {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  display: flex;
+  height: 100%;
+  max-width: 1450px;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 850px;
+  border: solid #d9ac82;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+#birthday_event_section .content-left-wrapper,
+#birthday_event_section .content-right-wrapper {
+  width: 50%;
+  height: 100%;
+  position: relative;
+}
+#birthday_event_section .content-left-wrapper {
+  background: url("../img/birth_img.png") center/cover no-repeat;
+}
+/*========== content-left-wrapper========== */
+.content-left-wrapper .content {
+  position: absolute;
+  top: 50%;
+  left: 42%;
+  transform: translate(-50%, -50%);
+}
+.content-left-wrapper .content .content-title {
+  font-size: 50px;
+  color: #1d1647;
+  margin-bottom: 25px;
+}
+.content-left-wrapper .content .timer_box_wrapper {
+  display: flex;
+  gap: 21px;
+}
+.content-left-wrapper .content .timer_box_wrapper .timer_box {
+  width: 110px;
+  height: 83px;
+  background: rgba(29, 22, 71, 0.78);
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  color: #fff;
+}
+.content-left-wrapper .content .timer_box_wrapper .timer_box .time_count {
+  font-size: 22px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.content-left-wrapper .content .timer_box_wrapper .timer_box .time_name {
+  background: #1d1647;
+  padding: 3px;
+}
+
+/*========== content-right-wrapper========== */
+.content-right-wrapper {
+  background: url(../img/birthday_frame.png) center/125% 125% no-repeat;
+}
+.content-right-wrapper .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.content-right-wrapper .content .content-title {
+  font-size: 40px;
+  color: #e1b389;
+}
+.content-right-wrapper .content .form_group {
+  width: 100%;
+  max-width: 520px;
+  margin-bottom: 12px;
+}
+.content-right-wrapper .content .form_group .form_control {
+  padding-left: 30px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  display: block;
+  background: #d9ac82;
+  border: none;
+  outline: none;
+  width: 100%;
+  border-radius: 9px;
+  font-size: 18px;
+}
+.content-right-wrapper .content .form_group .form_control::placeholder {
+  color: #000;
+  font-size: 18px;
+}
+
+.content-right-wrapper .content .submit_btn {
+  display: block;
+  margin-left: auto;
+  background: #d9ac82;
+  border: none;
+  outline: none;
+  border-radius: 9px;
+  padding: 11px 43px;
+  cursor: pointer;
+}

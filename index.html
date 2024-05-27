@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <section id="birthday_event_section">
+      <div class="content-left-wrapper">
+        <div class="content">
+          <h2 class="content-title">5 june 2023 at 2pm</h2>
+          <div class="timer_box_wrapper">
+            <div class="timer_box">
+              <div class="time_count" id="time_days">365</div>
+              <div class="time_name">Days</div>
+            </div>
+            <div class="timer_box">
+              <div class="time_count" id="time_hours">12</div>
+              <div class="time_name">Hours</div>
+            </div>
+            <div class="timer_box">
+              <div class="time_count" id="time_minutes">30</div>
+              <div class="time_name">Minutes</div>
+            </div>
+            <div class="timer_box">
+              <div class="time_count" id="time_seconds">25</div>
+              <div class="time_name">Seconds</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content-right-wrapper">
+        <div class="content">
+          <h2 class="content-title">Please Fill With Your Details</h2>
+          <form action="">
+            <div class="form_group">
+              <input
+                type="text"
+                placeholder="First Name"
+                class="form_control"
+              />
+            </div>
+            <div class="form_group">
+              <input type="text" placeholder="Last Name" class="form_control" />
+            </div>
+            <div class="form_group">
+              <input type="email" placeholder="Email" class="form_control" />
+            </div>
+            <div class="form_group">
+              <input
+                type="tel"
+                placeholder="Your Telephone"
+                class="form_control"
+              />
+            </div>
+            <div class="form_group">
+              <button class="submit_btn">Next</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Function to calculate the remaining time
+      function calculateTimeRemaining(endTime) {
+        const now = new Date().getTime();
+        const timeRemaining = endTime - now;
+
+        const seconds = Math.floor((timeRemaining / 1000) % 60);
+        const minutes = Math.floor((timeRemaining / 1000 / 60) % 60);
+        const hours = Math.floor((timeRemaining / 1000 / 60 / 60) % 24);
+        const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+
+        return {
+          total: timeRemaining,
+          days: days,
+          hours: hours,
+          minutes: minutes,
+          seconds: seconds,
+        };
+      }
+
+      // Function to initialize the countdown
+      function initializeCountdown(endTime) {
+        function updateCountdown() {
+          const t = calculateTimeRemaining(endTime);
+          let count_days = document.querySelector("#time_days");
+          let count_hours = document.querySelector("#time_hours");
+          let count_minutes = document.querySelector("#time_minutes");
+          let count_seconds = document.querySelector("#time_seconds");
+
+          count_days.innerHTML = t.days;
+          count_hours.innerHTML = t.hours;
+          count_seconds.innerHTML = t.seconds;
+          count_minutes.innerHTML = t.minutes;
+
+          if (t.total <= 0) {
+            clearInterval(timeinterval);
+            // countdownElement.innerHTML = "EXPIRED";
+          }
+        }
+
+        updateCountdown(); // run function once at first to avoid delay
+        const timeinterval = setInterval(updateCountdown, 1000);
+      }
+
+      // Set the end time for 1 year from now
+      const currentDate = new Date();
+      const endTime = new Date(
+        currentDate.getFullYear() + 1,
+        currentDate.getMonth(),
+        currentDate.getDate(),
+        currentDate.getHours(),
+        currentDate.getMinutes(),
+        currentDate.getSeconds()
+      );
+
+      initializeCountdown(endTime);
+    </script>
+  </body>
+</html>
